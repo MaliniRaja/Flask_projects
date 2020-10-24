@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<title>GITHUB REPOSITORIES</title>
+<style>
+H4{
+text-align:center;
+color: solid black;
+}
+.details{
+padding-top: 25px;
+background-color:black;
+border: 1px solid black;
+list-style-type: none;
+text-align: center;
+color: navajowhite;
+}
+body{
+background-color: navajowhite;
+color: black;
+}
+.grey:hover{
+ opacity:0.80;
+}
+.grey{
+margin-left:25px;
+padding: 20px;
+background-color: black;
+color:navajowhite
+}
+</style>
+
+
+<body>
+{% for row in resultSet %}
+
+    <H4>DETAILS FOR  GIT REPOSITORY {{row[0]}}</H4>
+<ul  class="details">
+    <li><b>Number of Stars : {{row[6]}}</b></li><br>
+    <li><b>Repository ID : {{row[0]}}</b></li><br>
+    <li><b>Name : {{row[1]}}</b></li><br>
+    <li><b>URL : <a href="{{row[2]}}">{{row[2]}}</a></b></li><br>
+    <li><b>Creation date : {{row[3]}}</b></li><br>
+    <li><b>Last Pushed date : {{row[4]}}</b></li>
+    <P> <li><b>{{row[5]}}</b></li></P><br>
+</ul>
+
+  {%endfor%}
+<div>
+<p ><a href=/list><button class=grey style="height:70px;width:120px">Back to DB List</button></a></p>
+<p><a href=/><button class=grey style="height:70px;width:120px">Back to Home page</button></a></p>
+</div>
+</body>

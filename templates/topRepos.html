@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<style>
+H4{
+text-align:center;
+  color:navajowhite;
+  padding-top: 20px;
+
+}
+#repos table,th,td{
+border:1px black solid
+
+}
+#repos{
+border-spacing: 10px 10px;
+width:100%
+font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+}
+#repos th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: navajowhite;
+  color: black;
+}
+
+#repos th,#repos td{
+padding: 5px;
+}
+#repos td{
+  border: 2px solid #ddd;
+}
+#repos tr:hover{
+    opacity:0.80;
+}
+
+body{
+ background-color: black;
+  color: navajowhite;
+
+}
+</style>
+
+<title>GITHUB REPOSITORIES</title>
+<H4>MOST POPULAR PYTHON GITHUB REPOSITORIES</H4>
+<br>
+<body>
+<H5>TOTAL NUMBER OF PYTHON REPOSITORIES= {{total}}</H5>
+<table id="repos">
+    <tr>
+        <th>Number of Stars</th>
+        <th>ID_Number</th>
+        <th>Repository Name</th>
+        <th>URL</th>
+        <th>Creation date</th>
+        <th>Last Pushed date</th>
+        <th>Description</th>
+  </tr>
+{% for key in gitrepo%}
+    <tr>
+        <td>{{ key['stargazers_count'] }}</td>
+        <td>{{ key['id'] }}</td>
+        <td>{{ key['name'] }}</td>
+        <td><a href="{{ key['html_url'] }}">{{ key['html_url'] }}</a></td>
+        <td>{{ key['created_at'] }}</td>
+        <td>{{ key['pushed_at'] }}</td>
+        <td>{{ key['description'] }}</td>
+    </tr>
+        {% endfor %}
+</table>
+
+
+</body>
+</html>

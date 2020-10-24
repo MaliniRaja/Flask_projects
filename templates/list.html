@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<style>
+H4{
+padding-top: 20px;
+text-align:center;
+  color: navajowhite;
+}
+#repos table,th,td{
+border:1px black solid
+}
+#repos{
+border-spacing: 10px 10px;
+width:100%
+font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+}
+#repos th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: navajowhite;
+  color: black;
+}
+#repos th,#repos td{
+padding: 5px;
+}
+#repos td{
+  border: 2px solid #ddd;
+    text-align: center;
+
+}
+#repos tr:hover{
+    opacity:0.80;
+}
+body{
+ background-color: black;
+  color: navajowhite;
+
+}
+h5{
+text-align:right;
+padding-right: 25px;
+}
+</style>
+
+    <title>GITHUB REPOSITORIES</title>
+<body>
+    <H4>POPULAR PYTHON GITHUB REPOSITORIES</H4>
+<h5>Please click on the Repository IDs<br> below to see more details</h5>
+<table id="repos">
+        <tr>
+        <th>Number of Stars</th>
+        <th>Repository Name</th>
+        <th>Description</th><th>Repository ID</th>
+  </tr>
+    {% for row in listDetails %}
+    <tr>
+        <td>{{row[6]}}</td>
+        <td>{{row[1]}}</td>
+        <td>{{row[5]}}</td>
+        <td><a href="{{url_for('listitem',lid=row[0])}}">{{row[0]}}</a></td>
+    </tr>
+    {%endfor%}
+
+    </table>
+</body>
